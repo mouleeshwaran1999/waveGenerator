@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waveform Using WaveDrom</title>
+    <!-- Use the alternative CDN for WaveDrom -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.1.0/skins/default.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.1.0/wavedrom.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+<h1>Waveform Using WaveDrom</h1>
+<div id="waveform"></div>
+
+<script type="WaveDrom">
+    {
+        "signal": [
+          {
+            "name": "Sum",
+            "wave": "0011...."
+          },
+          {
+            "name": "Cout",
+            "wave": "00....11"
+          },
+          {
+            "name": "A",
+            "wave": "00....11"
+          },
+          {
+            "name": "B",
+            "wave": "00..11.."
+          },
+          {
+            "name": "Cin",
+            "wave": "00110011"
+          }
+        ],
+        "foot": {
+          "tock": 10000
+        }
+      }
+</script>
+
+<script>
+    // Ensure WaveDrom is fully loaded and process the waveform
+    window.onload = function() {
+        if (typeof WaveDrom !== 'undefined') {
+            WaveDrom.ProcessAll(); // This will process and render the waveform
+        } else {
+            console.error("WaveDrom is not defined");
+        }
+    }
+</script>
+
+</body>
+</html>

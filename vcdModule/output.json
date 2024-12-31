@@ -1,0 +1,208 @@
+{
+  "header": {
+    "date": "",
+    "version": "",
+    "timescale": ""
+  },
+  "scopes": [
+    {
+      "name": "tb_full_adder",
+      "signals": [
+        {
+          "type": "wire",
+          "size": "1",
+          "id": "!",
+          "name": "Sum"
+        },
+        {
+          "type": "wire",
+          "size": "1",
+          "id": "\"",
+          "name": "Cout"
+        },
+        {
+          "type": "reg",
+          "size": "1",
+          "id": "#",
+          "name": "A"
+        },
+        {
+          "type": "reg",
+          "size": "1",
+          "id": "$",
+          "name": "B"
+        },
+        {
+          "type": "reg",
+          "size": "1",
+          "id": "%",
+          "name": "Cin"
+        },
+        {
+          "name": "uut",
+          "signals": [
+            {
+              "type": "wire",
+              "size": "1",
+              "id": "#",
+              "name": "A"
+            },
+            {
+              "type": "wire",
+              "size": "1",
+              "id": "$",
+              "name": "B"
+            },
+            {
+              "type": "wire",
+              "size": "1",
+              "id": "%",
+              "name": "Cin"
+            },
+            {
+              "type": "wire",
+              "size": "1",
+              "id": "\"",
+              "name": "Cout"
+            },
+            {
+              "type": "wire",
+              "size": "1",
+              "id": "!",
+              "name": "Sum"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "type": "wire",
+      "size": "1",
+      "id": "!",
+      "name": "Sum"
+    },
+    {
+      "type": "wire",
+      "size": "1",
+      "id": "\"",
+      "name": "Cout"
+    },
+    {
+      "type": "reg",
+      "size": "1",
+      "id": "#",
+      "name": "A"
+    },
+    {
+      "type": "reg",
+      "size": "1",
+      "id": "$",
+      "name": "B"
+    },
+    {
+      "type": "reg",
+      "size": "1",
+      "id": "%",
+      "name": "Cin"
+    },
+    {
+      "type": "wire",
+      "size": "1",
+      "id": "#",
+      "name": "A"
+    },
+    {
+      "type": "wire",
+      "size": "1",
+      "id": "$",
+      "name": "B"
+    },
+    {
+      "type": "wire",
+      "size": "1",
+      "id": "%",
+      "name": "Cin"
+    },
+    {
+      "type": "wire",
+      "size": "1",
+      "id": "\"",
+      "name": "Cout"
+    },
+    {
+      "type": "wire",
+      "size": "1",
+      "id": "!",
+      "name": "Sum"
+    }
+  ],
+  "changes": [
+    {
+      "time": 0,
+      "signalId": "ps",
+      "value": "1"
+    },
+    {
+      "time": 0,
+      "signalId": "%",
+      "value": "0"
+    },
+    {
+      "time": 0,
+      "signalId": "$",
+      "value": "0"
+    },
+    {
+      "time": 0,
+      "signalId": "#",
+      "value": "0"
+    },
+    {
+      "time": 0,
+      "signalId": "\"",
+      "value": "0"
+    },
+    {
+      "time": 0,
+      "signalId": "!",
+      "value": "0"
+    },
+    {
+      "time": 10000,
+      "signalId": "!",
+      "value": "1"
+    },
+    {
+      "time": 10000,
+      "signalId": "%",
+      "value": "1"
+    },
+    {
+      "time": 20000,
+      "signalId": "%",
+      "value": "0"
+    },
+    {
+      "time": 20000,
+      "signalId": "$",
+      "value": "1"
+    },
+    {
+      "time": 30000,
+      "signalId": "\"",
+      "value": "1"
+    },
+    {
+      "time": 30000,
+      "signalId": "%",
+      "value": "1"
+    },
+    {
+      "time": 30000,
+      "signalId": "#",
+      "value": "1"
+    }
+  ]
+}
