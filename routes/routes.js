@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const CreateVcdFile = require('../controllers/createVcdFile');
+const CreateVcdFile = require('../createVcdFile');
 
 router.post('/CreateVcdFile',CreateVcdFile)
 
