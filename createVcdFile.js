@@ -20,7 +20,6 @@ const CreateVcdFile = async (req, res) => {
   });
 
   if (req.body["files"]) {
-    console.log("inside if");
     await runCmd("iverilog -o fa_sim fa.v fa_tb.v");
     await runCmd("vvp fa_sim");
 
@@ -29,7 +28,6 @@ const CreateVcdFile = async (req, res) => {
 
     const filePath = path.join(__dirname, "", "wavedrom.json");
     res.sendFile(filePath);
-    console.log("reached");
 
     req.body["files"]?.forEach((element) => {
       let pathname = path.join(__dirname, "", element.filename);
