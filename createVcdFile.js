@@ -1,39 +1,44 @@
-const fs = require('fs');
-const convertVcdToJson = require('./vcdModule/app')
-const convertToWaveDrom = require('./vcdModule/wavedrom')
-const vcdFile = 'dump.vcd';
-const outpath = 'output.json'
-// const multer = require('multer')
-const path = require('path');
-const { exec } = require('child_process');
-const util = require('util');
+const fs = require("fs");
+const convertVcdToJson = require("./vcdModule/app");
+const convertToWaveDrom = require("./vcdModule/wavedrom");
+const vcdFile = "dump.vcd";
+const outpath = "output.json";
+const path = require("path");
+const { exec } = require("child_process");
+const util = require("util");
 const execAsync = util.promisify(exec);
 
 const CreateVcdFile = async (req, res) => {
-  req.body["files"].forEach(element => {
+  req.body["files"]?.forEach((element) => {
     fs.writeFile(element.filename, element.content, (err) => {
       if (err) {
-        console.error('Error writing to file:', err);
+        console.error("Error writing to file:", err);
         return;
       }
-      console.log('File created and content written successfully!');
+      console.log("File created and content written successfully!");
     });
   });
 
+  if (req.body["files"]) {
+    console.log("inside if");
+    await runCmd("iverilog -o fa_sim fa.v fa_tb.v");
+    await runCmd("vvp fa_sim");
 
+    convertVcdToJson(vcdFile, outpath);
+    convertToWaveDrom(outpath, "wavedrom.json");
 
-  await runCmd('iverilog -o fa_sim fa.v fa_tb.v')
-  await runCmd('vvp fa_sim')
+    const filePath = path.join(__dirname, "", "wavedrom.json");
+    res.sendFile(filePath);
+    console.log("reached");
 
-  convertVcdToJson(vcdFile, outpath);
-  convertToWaveDrom(outpath, "wavedrom.json")
-
-
-  const filePath = path.join(__dirname, '', 'wavedrom.json');
-  res.sendFile(filePath);
-
-
-}
+    req.body["files"]?.forEach((element) => {
+      let pathname = path.join(__dirname, "", element.filename);
+      fs.unlinkSync(pathname);
+    });
+  } else {
+    res.send({ sucess: false, message: "Files not sent" });
+  }
+};
 
 async function runCmd(cmd) {
   try {
@@ -51,8 +56,3 @@ async function runCmd(cmd) {
 }
 
 module.exports = CreateVcdFile;
-
-
-
-
-
